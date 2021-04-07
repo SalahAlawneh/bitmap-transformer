@@ -3,12 +3,75 @@
  */
 package bitmap.transformer;
 
+import java.util.Arrays;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+       System.out.println(Arrays.toString(args));
+        if(args.length ==3){
+
+             colorPalletTransforms bitmapImageColor=new colorPalletTransforms("eviltower.bmp", "s.png");
+            rasterDataTransforms bitmapImageRaster=new rasterDataTransforms(args[0], args[1]);
+            System.out.println(args[0]);
+            System.out.println(args[1]);
+            switch("Randomize") {
+                case "Invert":
+                    bitmapImageColor.readBitmapFile();
+                    bitmapImageColor.convertToInvert();
+                    bitmapImageColor.writeBitmapFile();
+
+                    break;
+
+                case "Randomize":
+
+                    bitmapImageColor.readBitmapFile();
+                    bitmapImageColor.convertToRandomize();
+                    bitmapImageColor.writeBitmapFile();
+
+
+                    break;
+                case "Black And White":
+                    bitmapImageColor.readBitmapFile();
+                    bitmapImageColor.convertToBlackAndWhite();
+                    bitmapImageColor.writeBitmapFile();
+                    break;
+
+                case "Pixilate":
+                    bitmapImageRaster.readBitmapFile();
+                    bitmapImageRaster.pixilate();
+                    bitmapImageRaster.writeBitmapFile();
+                    break;
+                case "Add Border":
+                    bitmapImageRaster.readBitmapFile();
+                    bitmapImageRaster.addBorder();
+                    bitmapImageRaster.writeBitmapFile();
+                    break;
+                case "Add Watermark":
+                    bitmapImageRaster.readBitmapFile();
+                    bitmapImageRaster.addWatermark();
+                    bitmapImageRaster.writeBitmapFile();
+                    break;
+                case "Rotate":
+                    bitmapImageRaster.readBitmapFile();
+                    bitmapImageRaster.rotate();
+                    bitmapImageRaster.writeBitmapFile();
+                    break;
+                default:
+                    // code block
+            }
+//
+
+
+       }else{
+            System.out.println("input is wrong the files should be provides is : input-file-path output-file-path transfrom-name");
+        }
+//        System.out.println(Arrays.toString(args));
+//            colorPalletTransforms bitmapImage=new colorPalletTransforms(args[0], args[1]);
+//           bitmapImage.readBitmapFile();
+//           bitmapImage.convertToRandomize();
+//           bitmapImage.writeBitmapFile();
+
     }
 }
