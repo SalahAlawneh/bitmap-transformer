@@ -31,6 +31,12 @@ public class colorPalletTransforms extends Bitmap {
 
 
     }
+//
+//    private int getImgWidth() {
+//    }
+//
+//    private int getImgHeight() {
+//    }
 
 
     public void convertToRandomize(){
@@ -80,6 +86,9 @@ public class colorPalletTransforms extends Bitmap {
 
 
     }
+
+
+
 
 //
 //    public void convertToDarker(){
